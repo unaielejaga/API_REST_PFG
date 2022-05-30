@@ -1,11 +1,13 @@
 package es.deusto.pfg;
 
+import java.util.ArrayList;
+
 public class Main 
 {
     public static void main( String[] args )
     {
     	MyResource mr = new MyResource();
-    	String productos = mr.getProductos();
-    	System.out.println(productos.toString());
+    	ArrayList<Producto> productos = mr.getProductos();
+    	System.out.println(productos);
     }
 }
