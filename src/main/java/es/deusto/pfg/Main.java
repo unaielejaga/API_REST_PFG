@@ -9,5 +9,7 @@ public class Main
     	MyResource mr = new MyResource();
     	ArrayList<Producto> productos = mr.getProductos();
     	System.out.println(productos);
+    	SwingPanel panel = new SwingPanel(productos);
+    	panel.setVisible(true);
     }
 }

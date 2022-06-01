@@ -23,7 +23,7 @@ public class MyResource {
 		JSONObject json = new JSONObject(productos);
 		for(Iterator key=json.keys(); key.hasNext();) {
 			JSONObject producto = (JSONObject) json.get((String) key.next());
-			Producto obj_producto = new Producto(producto.getString("nombre"), producto.getString("marca"), producto.getString("fechacad"), producto.getString("fechacompr"), producto.getString("fechacons"));
+			Producto obj_producto = new Producto(producto.getString("nombre"), producto.getString("marca"), producto.getString("fechacad"), producto.getString("fechacompra"), producto.getString("fechacons"));
 			array_productos.add(obj_producto);
 		}
 		return array_productos;
