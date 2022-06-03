@@ -15,11 +15,12 @@ public class MyResource {
 	
 	static Client client = ClientBuilder.newClient();
 
-	final static WebTarget appTarget = client.target("https://my-app-20856-default-rtdb.europe-west1.firebasedatabase.app/distribuidores/EROS.json");
+	final static WebTarget appTarget = client.target("https://my-app-20856-default-rtdb.europe-west1.firebasedatabase.app/distribuidores");
 
-	public static ArrayList<Producto> getProductos() {
+	public static ArrayList<Producto> getProductos(String distribuidor) {
+		final WebTarget distriTarget = appTarget.path(distribuidor + ".json");
 		ArrayList<Producto> array_productos = new ArrayList<>();
-		String productos = appTarget.request(MediaType.APPLICATION_JSON).get(String.class);
+		String productos = distriTarget.request(MediaType.APPLICATION_JSON).get(String.class);
 		JSONObject json = new JSONObject(productos);
 		for(Iterator key=json.keys(); key.hasNext();) {
 			JSONObject producto = (JSONObject) json.get((String) key.next());
